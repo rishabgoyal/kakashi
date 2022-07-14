@@ -9,6 +9,6 @@ public class asd {
     public static void getDetail(){
         System.debug('Hello');
         System.debug('Hello2');
-        System.debug('Hello34 NEw code');
+        System.debug('Hello34 NEw coden asd');
     }
 }
