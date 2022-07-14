@@ -1,0 +1,59 @@
+<aura:component controller="LeadConvertController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:html tag="style">
+        .slds-modal__container {
+       				 min-width: 90vw;
+       }
+    </aura:html>   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="duplicateContactList" type="list" default=""/>
+    <aura:attribute name="CreateNewContact" type="boolean" default="false" /> 
+    <aura:handler name="cmpEvent" event="c:LeadConvertAppEvent" action="{!c.handleContactSelected}"/>
+    
+    <div>
+        
+     <lightning:buttonGroup class="slds-p-around_small">
+       
+        <lightning:button disabled="{!!v.CreateNewContact}" label="Use Existing Contact" onclick="{!c.toggleForms}"/>
+          <lightning:button  disabled="{!v.CreateNewContact}" label="Create New Contact"  onclick="{!c.toggleForms}"/>
+         
+    </lightning:buttonGroup>
+    
+
+
+            <aura:if isTrue="{!v.CreateNewContact}">
+                <lightning:recordEditForm density="comfy"
+                                          
+                                          objectApiName="Contact">
+                    <!-- the messages component is for error messages -->
+                    <lightning:messages />
+                    
+                    <lightning:inputField fieldName="Name" />
+                    <lightning:inputField fieldName="AccountId" /> 
+                    <lightning:inputField fieldName="Phone" />
+                    <lightning:inputField fieldName="Email" />
+                    <lightning:inputField fieldName="MailingAddress" />
+                    <div class="slds-m-top_medium">
+                        <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+                    </div>
+                </lightning:recordEditForm>
+                <aura:set attribute="else">
+                        <lightning:layout multipleRows="true">
+                            <aura:iteration items="{!v.duplicateContactList}" var="contact">
+                                <lightning:layoutItem size="6" padding="around-small">
+                                        <c:ContactDisp contactId="{!contact.Id}"/>
+                                </lightning:layoutItem>
+                            </aura:iteration>
+                        </lightning:layout>
+
+                        
+                   
+                </aura:set>
+            </aura:if> 
+    
+    <br/>
+</div>   
+    
+</aura:component>

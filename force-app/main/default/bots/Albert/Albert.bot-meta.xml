@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <botMlDomain>
+        <label>Albert</label>
+        <mlIntents>
+            <developerName>Check_the_Status_of_a_Case</developerName>
+            <label>Check the Status of a Case</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Confused</developerName>
+            <label>Confused</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>End_Chat</developerName>
+            <label>End Chat</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Main_Menu</developerName>
+            <label>Main Menu</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Schedule_an_Appointment</developerName>
+            <label>Schedule an Appointment</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Transfer_To_Agent</developerName>
+            <label>Transfer To Agent</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Update_my_Contact_Info</developerName>
+            <label>Update my Contact Info</label>
+        </mlIntents>
+        <mlIntents>
+            <developerName>Welcome</developerName>
+            <label>Welcome</label>
+        </mlIntents>
+        <mlSlotClasses>
+            <dataType>Text</dataType>
+            <developerName>DateTime</developerName>
+            <extractionType>Value</extractionType>
+            <label>DateTime</label>
+            <mlSlotClassValues>
+                <synonymGroups>
+                    <languages>en_US</languages>
+                    <terms>Monday in evening</terms>
+                </synonymGroups>
+                <value>Monday at noon</value>
+            </mlSlotClassValues>
+        </mlSlotClasses>
+        <name>Albert_ld1</name>
+    </botMlDomain>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.ChatKey</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Text</dataType>
+        <developerName>ChatKey</developerName>
+        <label>Chat Key</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.ContactId</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>ContactId</developerName>
+        <label>Contact Id</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.LiveChatVisitorId</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>EndUserId</developerName>
+        <label>End User Id</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>LiveChatTranscript</SObjectType>
+            <fieldName>LiveChatTranscript.Id</fieldName>
+            <messageType>WebChat</messageType>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>RoutableId</developerName>
+        <label>Routable Id</label>
+    </contextVariables>
+    <conversationChannelProviders>
+        <agentRequired>false</agentRequired>
+        <chatButtonName>Chat_Boot</chatButtonName>
+    </conversationChannelProviders>
+    <description>A customer service bot that can answer almost any question, whether you ask or not.</description>
+    <label>Albert</label>
+    <logPrivateConversationData>true</logPrivateConversationData>
+    <richContentEnabled>false</richContentEnabled>
+</Bot>

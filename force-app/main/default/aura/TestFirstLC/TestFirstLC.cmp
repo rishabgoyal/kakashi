@@ -1,0 +1,23 @@
+<aura:component >
+	
+    <aura:attribute name="SurName" type="String" default="" />
+    <aura:attribute name="IsButtonClicked" type="Boolean" default="false" />
+    
+    RISHAB  {! v.SurName}
+    
+    
+     
+    
+
+    
+    
+    <aura:if isTrue="{!v.IsButtonClicked}">
+			Button Clicked Successfully
+        <aura:set attribute="else">
+            <lightning:button variant="brand" label="Brand" title="Brand action" onclick="{! c.handleClick }" />
+        </aura:set>
+    </aura:if>
+   
+    
+    
+</aura:component>

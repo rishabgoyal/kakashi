@@ -1,0 +1,124 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="TMAY1" type="Integer" />
+    <aura:attribute name="TMAY2" type="Integer" />
+    <aura:attribute name="TMAY3" type="Integer" />
+    <aura:attribute name="TMAY4" type="Integer" />
+    <aura:attribute name="TMAY5" type="Integer" />
+    <aura:attribute name="TMT" type="Integer" />
+    
+    
+	
+    <aura:attribute name="TLAY1" type="Integer" />
+    <aura:attribute name="TLAY2" type="Integer" />
+    <aura:attribute name="TLAY3" type="Integer" />
+    <aura:attribute name="TLAY4" type="Integer" />
+    <aura:attribute name="TLAY5" type="Integer" />
+    <aura:attribute name="TLT" type="Integer" />
+    	
+	<aura:attribute name="TGAY1" type="Integer" />
+    <aura:attribute name="TGAY2" type="Integer" />
+    <aura:attribute name="TGAY3" type="Integer" />
+    <aura:attribute name="TGAY4" type="Integer" />
+    <aura:attribute name="TGAY5" type="Integer" />
+    <aura:attribute name="TGT" type="Integer" />
+    
+	<aura:attribute name="OFY1" type="Integer" />
+    <aura:attribute name="OFY2" type="Integer" />
+    <aura:attribute name="OFY3" type="Integer" />
+    <aura:attribute name="OFY4" type="Integer" />
+    <aura:attribute name="OFY5" type="Integer" />
+    <aura:attribute name="OFT" type="Integer" />
+        
+
+    <aura:attribute name="GTotal" type="Integer" />
+    <aura:attribute name="Y1T" type="Integer" />
+    <aura:attribute name="Y2T" type="Integer" />
+    <aura:attribute name="Y3T" type="Integer" />
+    <aura:attribute name="Y4T" type="Integer" />
+    <aura:attribute name="Y5T" type="Integer" />
+    
+    
+    <table  class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th scope="col" style="font-weight: bold;">Total Proposed Fund Services Area Costs</th>
+                <th scope="col" style="font-weight: bold;"></th>
+                <th scope="col" style="font-weight: bold;">{!v.Y1T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y2T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y3T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y4T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y5T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.GTotal}</th>
+            </tr>
+            <tr class="slds-line-height_reset">
+                <th scope="col"></th>
+                <th scope="col" style="font-weight: bold;">Total Project Cost</th>
+                <th scope="col" style="font-weight: bold;">Year 1</th>
+                <th scope="col" style="font-weight: bold;">Year 2</th>
+                <th scope="col" style="font-weight: bold;">Year 3</th>
+                <th scope="col" style="font-weight: bold;">Year 4</th>
+                <th scope="col" style="font-weight: bold;">Year 5</th>
+                <th scope="col" style="font-weight: bold;">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="col">Total Match Amount</td>
+                <td scope="col" style="font-weight: bold;">{!v.TMT}</td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount" onchange="{!c.update}" variant="label-hidden" value="{!v.TMAY1}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TMAY2}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TMAY3}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TMAY4}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TMAY5}" /></td>
+                <td scope="col" style="font-weight: bold;">{!v.TMT}</td>
+
+            </tr>
+            
+            <tr>
+                <td scope="col">Total Loan Amount</td>
+                <td scope="col" style="font-weight: bold;">{!v.TLT}</td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TLAY1}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TLAY2}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TLAY3}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TLAY4}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TLAY5}" /></td>
+                <td scope="col" style="font-weight: bold;">{!v.TLT}</td>
+
+            </tr>
+            
+            <tr>
+                <td scope="col">Total Grant Amount</td>
+                <td scope="col" style="font-weight: bold;">{!v.TGT}</td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TGAY1}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TGAY2}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TGAY3}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TGAY4}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.TGAY5}" /></td>
+                <td scope="col" style="font-weight: bold;">{!v.TGT}</td>
+
+            </tr>
+            <tr>
+                <td scope="col">Other Funds</td>
+                <td scope="col" style="font-weight: bold;">{!v.OFT}</td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.OFY1}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.OFY2}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.OFY3}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.OFY4}" /></td>
+                <td scope="col">  <lightning:input type="number" formatter="currency" aura:id="amount"   onchange="{!c.update}" variant="label-hidden" value="{!v.OFY5}" /></td>
+                <td scope="col" style="font-weight: bold;">{!v.OFT}</td>
+
+            </tr>
+               <tr class="slds-line-height_reset">
+                <th scope="col" style="font-weight: bold;">Total</th>
+                <th scope="col" style="font-weight: bold;">{!v.GTotal}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y1T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y2T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y3T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y4T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.Y5T}</th>
+                <th scope="col" style="font-weight: bold;">{!v.GTotal}</th>
+            </tr>
+        </tbody>
+    </table>
+    
+</aura:component>

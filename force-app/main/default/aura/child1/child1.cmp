@@ -1,0 +1,12 @@
+<aura:component >
+    
+    <aura:registerEvent name="cmpEvent" type="c:child1Event"/>
+    
+    child component
+    
+    <lightning:button variant="brand"
+                      label="Brand action"
+                      title="Brand action"
+                      onclick="{! c.handleClick }" />
+    
+</aura:component>

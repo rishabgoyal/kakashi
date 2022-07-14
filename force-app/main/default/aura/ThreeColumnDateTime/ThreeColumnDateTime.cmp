@@ -1,0 +1,54 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="Label" type="String" default="Enter Date Time"/>
+    <aura:attribute name="Hours" type="List" default="01,02,03,04,05,06,07,08,09,10,11,12"/>
+    <aura:attribute name="Minutes" type="List" default="00,10,20,30,40,50"/>
+    <aura:attribute name="AMPM" type="List" default="AM,PM"/>
+    <aura:attribute name="width" type="String" default="90"/>
+    <aura:attribute name="selectedDateTime" type="DateTime" default="" />
+    <aura:attribute name="selectedDate" type="Date" default="" />
+    <aura:attribute name="selectedHour" type="String" default="" />
+    <aura:attribute name="selectedMinute" type="String" default="" />
+    <aura:attribute name="selectedAMPM" type="String" default="" />
+    <aura:method name="validateDate" action="{!c.valdiatedate}"/>
+    <aura:attribute name="showErrorMessage" type="Boolean" default="false"/>
+    
+    <div style="{!'width:'+ v.width +'%'}">
+
+    <lightning:layout pullToBoundary="medium">
+        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+            <lightning:input class="" type="date" aura:id="dateinput" name="input1" label="{!v.Label}" value="{!v.selectedDate}" onchange="{!c.onChangeDate}" />
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+            <lightning:select name="Hours"  aura:id="inputHours" value="{!v.selectedHour}" onchange="{!c.onChangeDate}" label="HH" >
+                <option value=""></option>
+                <aura:iteration items="{!v.Hours}" var="hour">
+                    <option value="{!hour}">{!hour}</option>
+                </aura:iteration>
+            </lightning:select>
+            
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+            <lightning:select name="Minutes"  aura:id="inputMinutes" value="{!v.selectedMinute}" onchange="{!c.onChangeDate}" label="MM"  >
+                <option value=""></option>
+                <aura:iteration items="{!v.Minutes}" var="Min">
+                    <option value="{!Min}">{!Min}</option>
+                </aura:iteration>
+            </lightning:select>
+            
+        </lightning:layoutItem>
+        <lightning:layoutItem flexibility="auto" padding="horizontal-medium">
+            <lightning:select name="AMPM"  label="AM/PM" aura:id="inputAMPM"  value="{!v.selectedAMPM}" onchange="{!c.onChangeDate}"   >
+                <option value=""></option>
+                <aura:iteration items="{!v.AMPM}" var="valueampm">
+                    <option value="{!valueampm}">{!valueampm}</option>
+                </aura:iteration>
+            </lightning:select>
+            
+        </lightning:layoutItem>
+    </lightning:layout>
+        <aura:if isTrue="{!v.showErrorMessage}">
+            <p class="form-element__help">Complete the fields</p>
+        </aura:if> 
+       
+    </div>
+</aura:component>

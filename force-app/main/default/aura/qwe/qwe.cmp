@@ -1,0 +1,76 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome,flexipage:availableForAllPageTypes,force:hasRecordId,lightning:actionOverride">
+    <aura:attribute name="IconName" type="string" default="custom:custom18"/>
+    <aura:attribute name="ApplicationId" type="string" default="001dasdas123123"/>
+    <aura:attribute name="BorrowerName" type="string" default="Doe"/>
+    <aura:attribute name="BorrowerId" type="string" default="121232312"/>
+    <aura:attribute name="LenderLoanId" type="string" default="23435436"/>
+    
+    <aura:attribute name="RecentActivity" type="string" default="Created"/>
+    <aura:attribute name="ActivityTimestamp" type="DateTime" default=""/>
+    <aura:attribute name="UserName" type="string" default="John"/>
+    
+    <!--div class="slds-media">
+        <div class="slds-media__figure">
+            <span class="slds-icon_container" title="Description of icon when needed">
+                <lightning:icon  iconName="{!v.IconName}" size="large" alternativeText="{!v.IconName}"/>
+            </span>
+        </div>
+        <div class="slds-media__body">
+            <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                    <h1>
+                        <span>Application</span>
+                        <span class="slds-page-header__title slds-truncate" title="{!v.ApplicationId}">{!v.ApplicationId}</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div-->
+    
+    
+    <lightning:layout>
+        <lightning:layoutItem size="2">
+            <lightning:layout class="slds-m-top_small slds-m-bottom_x-small slds-wrap" verticalAlign="center" multipleRows="true">
+                <lightning:layoutItem>
+                    <lightning:icon class="slds-m-top_xx-small slds-m-right_small slds-m-bottom_xx-small slds-m-left_small" iconName="{!v.IconName}" size="medium" variant="slds-icon-inverse"></lightning:icon>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">GUS Application ID</div>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">{!v.ApplicationId}</div>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="10">
+            <lightning:layout class="slds-m-top_medium slds-m-right_xxx-small slds-m-bottom_large slds-m-left_xx-small slds-wrap" multipleRows="true">
+                 <lightning:layoutItem size="4">
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem size="1">
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;"><b><u>Borrower Name</u></b></div>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">{!v.BorrowerName}</div>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto">
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;"><b><u>Borrower ID</u></b></div>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">{!v.BorrowerId}</div>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto">
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;"><b><u>Lender Loan Number</u></b></div>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">{!v.LenderLoanId}</div>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto">
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;"><b><u>Most Recent Activity</u></b></div>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">{!v.RecentActivity}</div>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto">
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;"><b><u>Activity Timestamp</u></b></div>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">{!v.ActivityTimestamp}</div>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto">
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;"><b><u>User</u></b></div>
+                    <div style="color: rgb(84, 105, 141); font-size: 0.625rem;">{!v.UserName}</div>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+</aura:component>

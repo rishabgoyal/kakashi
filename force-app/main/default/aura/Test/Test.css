@@ -1,0 +1,67 @@
+.THIS .slds-modal__close{
+    width: 2.5rem;
+}
+
+.THIS .footerStyle{ 
+    width: 720px;
+    height: 64px;
+    border-radius: 4px;
+    background-color: #f3f2f2;
+    
+}
+
+.THIS .bodyStyle{
+    width: 720px;
+    height: 438px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.THIS .headerStyle{
+width: 720px;
+ height: 58px;
+ border-radius: 4px;
+ background-color: #07639d;
+ box-shadow: 0 2px 0 0 #f0f2f7;
+
+}
+
+
+.THIS .headingStyle{
+    
+     width: 720px;
+ height: 28px;
+ font-size: 20px;
+ line-height: 1.4;
+ letter-spacing: normal;
+ text-align: center;
+ color: #ffffff;
+
+    
+    
+}
+
+.THIS .bodyTextStyle{
+ width: 544px;
+ font-size: 20px;
+ line-height: 1.4;
+ letter-spacing: normal;
+ color: #2b3643;
+
+}
+.THIS .next
+{
+        width: 78px;
+    height: 32px;
+    border-radius: 3px;
+    background-color: #f5a623;
+    border-color:  #f5a623;
+	font-size: 0.725rem;
+    border-color: #f5a623;
+    font-weight: lighter;
+}

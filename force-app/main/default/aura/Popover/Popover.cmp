@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name ="nubbinposition" type="String" default="TopRight"/>
+    <aura:attribute name ="compName" type="String" default=""/>
+    
+    
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/> 
+    
+    <div style="position:relative">
+        
+        <aura:if isTrue="{!v.nubbinposition=='TopRight'}">
+            <section aria-label="Dialog title" aria-describedby="popover-body-id" class=" slds-popover slds-nubbin_top-right" style="position:absolute;    margin-right: 2%;
+                                                                                                                                     right: -2%; " role="dialog">
+                <div id="popover-body-id" class="slds-popover__body">
+                    {!v.body}
+                </div>
+            </section> 
+        </aura:if>
+        <aura:if isTrue="{!v.nubbinposition=='TopLeft'}">
+            <section aria-label="Dialog title" aria-describedby="popover-body-id" class=" slds-popover slds-nubbin_top-left" style="position:absolute;    margin-left: 2%;
+                                                                                                                                    left: -3%; " role="dialog">
+                <div id="popover-body-id" class="slds-popover__body">
+                    {!v.body}
+                </div>
+            </section> 
+        </aura:if>
+    </div>
+</aura:component>

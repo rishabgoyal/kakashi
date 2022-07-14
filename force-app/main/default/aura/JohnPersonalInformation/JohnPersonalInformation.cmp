@@ -1,0 +1,44 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <div style="    background: white;">
+        <div class="slds-p-around_x-large">
+            
+            <div class="slds-text-heading_large">Personal Information</div>
+            
+            <div class="slds-p-around_large">
+                
+                <!-- code for picklist start -->
+                <lightning:select class="slds-size_1-of-2" name="select1" label="Are you married?" >
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                    <option value="3">Not now but soon</option>
+                </lightning:select>
+                
+                <br/>
+                
+                <br/>
+                <!-- code for picklist end -->
+                
+                
+                <!-- code for button start -->                
+                <label class="slds-form-element__label" >
+                    <span>Are you married?</span>
+                </label>
+                <br/>
+                <div class="slds-size_3-of-4">
+                    <lightning:button variant="brand" label="Yes" title="Yes"  />
+                    <lightning:button variant="brand" label="No" title="No"  />
+                    <lightning:button variant="brand" label="Not now but soon" title="Not now but soon"  />
+                </div>
+                <br/>
+                <!-- code for button end -->
+                <div style="float:right;">
+                    
+                    <lightning:button variant="brand" label="Save and Continue" title="Save and Continue" onclick="{! c.saveandContinue }" />
+                    <lightning:button variant="brand" label="Save and Finish Later" title="Save and Finish Later" onclick="{! c.saveandexit }" />
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+</aura:component>

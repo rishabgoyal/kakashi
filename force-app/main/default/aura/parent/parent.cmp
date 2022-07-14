@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:attribute name="parentmessage" type="String" default='Hello' />
+    <aura:handler name="cmpEvent" event="c:child1Event" action="{!c.handleComponentEvent}"/>
+    {!v.parentmessage}
+    <br/>
+    <br/>
+    
+    <br/>
+    <c:child1 />
+    
+</aura:component>

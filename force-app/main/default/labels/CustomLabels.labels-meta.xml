@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AQB_AllowedFieldTypes</fullName>
+        <categories>Advance Query Builder</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AQB_AllowedFieldTypes</shortDescription>
+        <value>Boolean,Currency,Date,DateTime,Double,Email,ID,Integer,Reference,Percent,Phone,Picklist,String,TextArea,Time,URL</value>
+    </labels>
+    <labels>
+        <fullName>AQB_AllowedObjects</fullName>
+        <categories>Advance Query Builder</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AQB_AllowedObjects</shortDescription>
+        <value>account,opportunity,contact,lead,task,event,activity,opportunitylineitem,product2,pricebookentry,pricebook,quote,quotelineitem,user</value>
+    </labels>
+    <labels>
+        <fullName>AQB_NA_ObjectTypes</fullName>
+        <categories>Advance Query Builder</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AQB_NA_ObjectTypes</shortDescription>
+        <value>__share,__changeevent,share,apex</value>
+    </labels>
+</CustomLabels>

@@ -1,0 +1,45 @@
+<aura:component controller="TaskScreenApexController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+  	<!--This is a handler which calls init method before component is loaded -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+      	<!--attributes Declaration -->
+    <aura:attribute name="showMyComponent" type="boolean" default="false" />
+    <aura:attribute name="allTasks" type="List" /> 	<!--Stores all the Tasks retured from apex method -->
+    
+    <aura:if isTrue="{!v.showMyComponent}"><!--Checks if our data is loaded -->
+        <div class="slds-m-around_x-large"> <!--Adds Margin -->
+            <article class="slds-card"><!-- Card Layout -->
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <span class="CustomStyleClass">Today's Tasks</span>
+                                
+                            </h2>
+                        </div>
+                        <div class="slds-no-flex">
+                            <button class="slds-button slds-button_neutral">New</button>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">Anything can go in the Card Body
+                    <br/>
+                    <aura:iteration items="{!v.allTasks}" var="item"><!-- Iterates the list and displays list values-->
+                        {!item.ActivityDate }  {!item.Priority  } {!item.Status  }<br/>
+                    </aura:iteration>
+
+                
+                
+                </div>
+                <footer class="slds-card__footer">
+                    <a class="slds-card__footer-action" href="javascript:void(0);">View All
+                        <span class="slds-assistive-text">Accounts</span>
+                    </a>
+                </footer>
+            </article>
+        </div>
+    </aura:if> 
+    
+    
+    
+</aura:component>

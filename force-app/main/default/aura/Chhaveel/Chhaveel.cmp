@@ -1,0 +1,14 @@
+<aura:component controller="ChhaveelApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="buttonLabel" type="String" default="Change Button Label" />
+    <aura:attribute name="buttonLabel2" type="String" default="Rishab" />
+    
+    Hi chabveekls 
+    
+    
+    
+    
+    <lightning:button label="{!v.buttonLabel}" title="Neutral action" onclick="{! c.handleClick }"/>
+    
+    
+</aura:component>

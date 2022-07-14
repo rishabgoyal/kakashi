@@ -1,0 +1,20 @@
+<template>
+	<template if:true={listOptions.length}>
+		<lightning-combobox name={name} label={label} value={value} placeholder={placeholder} options={listOptions}
+			onchange={handleValueChanges}>
+		</lightning-combobox>
+	</template>
+	<div style="font-size:x-small">
+		{selectedValuelabel}
+	</div>
+	<br/>
+
+	<!-- Multi Select Pills -->
+	<div if:true={optionData.length}>
+		<template for:each={optionData} for:item="option">
+
+			<lightning-pill key={option.value} class="slds-m-around_xx-small" data-id={option.value} name={option.value} label={option.label}
+				onremove={removePill}></lightning-pill>
+		</template>
+	</div>
+</template>

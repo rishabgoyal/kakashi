@@ -1,0 +1,27 @@
+<template>
+	<strong>Hello I am in Salesforce LWC {cardTitle}
+
+	</strong>
+	<br />
+
+
+
+	<lightning-card title={cardTitle} icon-name="custom:custom63">
+		<div class="slds-p-around_medium" onkeyup={handleKeyUp}>
+			<lightning-input name="enter-search" value={searchValue} label="Search when user hits the 'enter' key"  type="search" >
+			</lightning-input>
+		</div>
+		<br />
+		<div class="slds-m-around_medium">
+			<template if:true={Accounts.data}>
+				<template for:each={Accounts.data} for:item="contact">
+					<p key={contact.Id}>{contact.Name}</p>
+				</template>
+			</template>
+			<template if:true={Accounts.error}>
+					{Accounts.error}
+			</template>
+		</div>
+	</lightning-card>
+
+</template>

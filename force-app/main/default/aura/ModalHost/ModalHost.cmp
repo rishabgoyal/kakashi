@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+
+    <aura:attribute name="response" type="boolean" default="false" />
+    <aura:handler event="c:ModalResponse" action="{!c.handleResponse}"/>
+    {!v.response}
+    
+    <lightning:button class="" variant="neutral" aura:id="No" name="OpenPopUp" label="Open Confirmation Box" onclick="{!c.openPopUp}"/>
+	
+    <c:ModalBoxConfirmation	 identifierId="fromApp" aura:id="modal"/>
+
+</aura:component>

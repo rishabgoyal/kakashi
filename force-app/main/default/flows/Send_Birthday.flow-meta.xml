@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Birthday_Email</name>
+        <label>Send Birthday Email</label>
+        <locationX>676</locationX>
+        <locationY>359</locationY>
+        <actionName>Contact.Send_Birthday_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>52.0</apiVersion>
+    <decisions>
+        <name>If_Birthdate_Today</name>
+        <label>If Birthdate Today</label>
+        <locationX>363</locationX>
+        <locationY>344</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_if_Birthdate_Today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsBirthdayToday</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Birthday_Email</targetReference>
+            </connector>
+            <label>Check if Birthdate Today</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>IsBirthdayToday</name>
+        <dataType>Boolean</dataType>
+        <expression>AND((Day({!$Record.Birthdate})   = Day({!$Flow.CurrentDate})),
+(Month({!$Record.Birthdate}) = Month({!$Flow.CurrentDate})))</expression>
+    </formulas>
+    <interviewLabel>Send Birthday {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Birthday Email Daily</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>51</locationY>
+        <connector>
+            <targetReference>If_Birthdate_Today</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Email</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2021-09-05</startDate>
+            <startTime>06:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Draft</status>
+</Flow>

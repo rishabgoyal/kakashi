@@ -1,0 +1,8 @@
+.THIS {
+    background:white;
+}
+
+.THIS .LargeText .slds-form-element__static {
+     font-size: 1.1125rem !important;
+
+}

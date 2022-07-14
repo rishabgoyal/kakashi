@@ -1,0 +1,78 @@
+<apex:page controller="ShowContactsController" showheader="false"  renderAs="pdf" sidebar="false"  >
+    <!--apex:form id="sds">
+<apex:pageMessages />
+
+<h2>
+PhysicaL Items Here
+</h2>
+
+<apex:pageBlock id="table" >
+<apex:pageBlockTable value="{!ContactList}" var="lw" id="PhysicalItemTable" rendered="{!showContactList}">
+<apex:column headerValue="LastName">
+<apex:outputfield value="{!lw.Id}"/>
+</apex:column>
+<apex:column headerValue="FirstName">
+<apex:outputfield value="{!lw.FirstName}"/>
+</apex:column>
+<apex:column headerValue="LastName">
+<apex:outputfield value="{!lw.LastName}"/>
+</apex:column>
+</apex:pageBlockTable><br/>
+</apex:pageBlock>
+</apex:form-->
+    <head>
+        <style>
+            
+            table {
+            border: 1px solid black;
+            width: 100%;
+            }
+            th, td {
+            border-bottom: 1px solid #ddd;
+            }
+            tr:hover {background-color: #f5f5f5;}
+            th {
+            background-color: #4CAF50;
+            color: white;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div style="margin:2rem;">
+            
+        <h3>
+            Physical Items
+        </h3>
+            <table>
+                <thead width="100%">
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        FirstName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!ContactList}" var="lw" rendered="{!showContactList}"  >
+                        <tr>
+                            <td>{!lw.Id}
+                            </td>
+                            <td>{!lw.FirstName}
+                            </td>
+                            <td>{!lw.LastName}
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+    
+    
+   
+</apex:page>

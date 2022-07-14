@@ -1,0 +1,6 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="MYSTRING" TYPE="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+      <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    {!v.MYSTRING}
+</aura:component>

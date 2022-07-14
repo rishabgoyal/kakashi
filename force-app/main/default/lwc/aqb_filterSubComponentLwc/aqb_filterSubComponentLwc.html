@@ -1,0 +1,64 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-16-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+<div class="slds-card">
+	<lightning-layout multiple-rows>
+        <lightning-layout-item size="2" padding="around-small">
+            <div class="slds-align_absolute-center">Filters:</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="8" padding="around-small">
+            <template if:true={showFilterList}>
+            <div if:true={filterList.length}>
+
+						<template for:each={filterList} for:item="option">
+							<template if:true={option.displayText}>
+
+                 
+								<c-aqb_filter-item key={option.filterString} display-text={option.displayText}
+									filter-string={option.filterString} field-label={option.fieldLabel} field-a-p-i-name={option.fieldAPIName}
+									operator-label={option.operatorLabel} operator-symbol={option.operatorSymbol}
+									valueto-filter={option.valuetoFilter} serial={option.serial}
+									onchangeoperation={handleOperationChange}></c-aqb_filter-item>
+								<!--br key={option.filterString}-->
+                 
+            </template>
+							</template>
+					</div>
+					<div if:false={filterList.length}>
+						<h1>No filters found</h1>
+					</div>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+	<div class="slds-border_top">
+	<lightning-layout  multiple-rows>
+    <lightning-layout-item size="2" padding="around-small">
+          <lightning-radio-group name="filterLogic"
+                          label="Filter Logic"
+                          options={filterLogicOptions}
+                          value={selectedRadioButton}
+                          onchange={radioChanged} 
+                           required
+                          type="radio"></lightning-radio-group>
+    </lightning-layout-item>
+        <lightning-layout-item size="2" padding="around-small">
+             <div class="slds-align_absolute-center slds-p-top_large">Custom Logic:</div>
+        </lightning-layout-item>
+        <lightning-layout-item size="8" padding="around-small">
+            <lightning-input class="slds-text-title--caps" onblur={searchBuild} type="text" name="textField"
+						label="" value={logicString} onchange={handleConditionLogicChange}>
+					</lightning-input>
+					<p>{showLogicString}</p>
+        </lightning-layout-item>
+    </lightning-layout>
+	</div>
+</div>
+
+	
+		  
+</template>

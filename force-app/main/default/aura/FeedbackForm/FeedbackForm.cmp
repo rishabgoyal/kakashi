@@ -1,0 +1,117 @@
+<aura:component controller="FeedbackFormController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="liked" default="false" type="Boolean" />
+    
+    <aura:attribute name="disliked" default="false" type="Boolean" />
+    
+    <aura:attribute name="sobjDetail" type="Feedback__c" default="{'sobjectType' : 'Feedback__c'}"/>
+    <aura:attribute name="PL1Label" type="String" default="List 1" />
+    <aura:attribute name="PL2Label" type="String" default="List 2" />
+    <aura:attribute name="PL3Label" type="String" default="List 3" />
+    
+    <aura:attribute name="PL1api" type="String" default="Picklist_1__c" />
+    <aura:attribute name="PL2api" type="String" default="Picklist_2__c" />
+    <aura:attribute name="PL3api" type="String" default="Picklist_3__c" />
+    
+    <aura:attribute name="recordSumbitted" type="boolean" default="false" />
+    
+    <aura:if isTrue="{!v.recordSumbitted}">
+        
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title slds-p-top_xxx-small slds-p-bottom_xx-small">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" title="Feedback">Feedback Submitted Successfully</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <aura:set attribute="else">
+            
+         
+            <!--    <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                
+                                <lightning:icon iconName="standard:feedback" alternativeText="Feedback" variant="" size="large"/>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title slds-p-top_xxx-small slds-p-bottom_xx-small">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="Feedback">Feedback</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta">Any Information here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <lightning:layout horizontalAlign="space">
+                
+                <lightning:layoutItem size="6" padding="around-small">       
+                    <c:DependentPicklist Picklist1Label="{!v.PL1Label}"
+                                         Picklist2Label="{!v.PL2Label}"
+                                         Picklist3Label="{!v.PL3Label}"
+                                         controllingFieldAPI="{!v.PL1api}"
+                                         dependingFieldAPI="{!v.PL2api}"
+                                         subDependingFieldAPI="{!v.PL3api}"
+                                         Picklist1Value="{!v.sobjDetail.Picklist_1__c}"
+                                         Picklist2Value="{!v.sobjDetail.Picklist_2__c}"
+                                         Picklist3Value="{!v.sobjDetail.Picklist_3__c}"
+                                         objDetail="{!v.sobjDetail}"
+                                         />
+                    
+                    
+                    
+                </lightning:layoutItem>
+                
+                <lightning:layoutItem size="6" padding="around-small">
+                    <lightning:layoutItem size="12" padding="around-small">
+                        <lightning:textarea name="Comments"
+                                            disabled="{!v.sobjDetail.Picklist_3__c=='--- None ---'}"
+                                            value="{!v.sobjDetail.Comment__c}"
+                                            placeholder="Please input your comments here"
+                                            label="Comment"
+                                            maxlength="500"
+                                            />
+                        
+                    </lightning:layoutItem>
+                    <div class="slds-p-top_large">
+                        <lightning:layout horizontalAlign="space">
+                            <lightning:layoutItem padding="around-small">
+                                <lightning:buttonIconStateful iconName="utility:like" selected="{! v.liked }" onclick="{! c.handleLikeButtonClick }" alternativeText="Like" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem padding="around-small">
+                                <lightning:buttonIconStateful iconName="utility:dislike" selected="{! v.disliked }" onclick="{! c.handledislikeButtonClick }" alternativeText="Dislike" />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="10" padding="around-small">
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </div>
+                    
+                </lightning:layoutItem>
+            </lightning:layout> 
+            <div class="slds-p-bottom_large">
+            <center> <lightning:button variant="brand" label="Submit Feedback" title="Feedback" onclick="{! c.handleSubmit }" /> </center>  
+            </div>
+        </aura:set>
+    </aura:if> 
+    
+    
+</aura:component>

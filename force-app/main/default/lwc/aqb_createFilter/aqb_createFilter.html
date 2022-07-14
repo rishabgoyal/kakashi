@@ -1,0 +1,107 @@
+<template>
+
+	<div class="slds-card">
+
+		<template if:true={showError}>
+
+			<div style="color: darkred;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-left: 15px;">
+				Please fill all the details to add a filter
+			</div>
+
+		</template>
+
+		<lightning-layout multiple-rows>
+
+			<lightning-layout-item size="6" padding="around-small">
+				<lightning-radio-group name="filterLogic" label="Select filter type" options={fieldTypeOptions}
+					value={radiovalue} onchange={radioChanged} required type="radio"></lightning-radio-group>
+			</lightning-layout-item>
+			<template if:true={relatedListOptions.length}>
+				<lightning-layout-item size="6" padding="around-small">
+
+					<lightning-combobox name="Entity" label="Select related object" value={selectedObject}
+						placeholder="Select Entity" options={relatedListOptions} onchange={handleRelatedObjectChanges}>
+					</lightning-combobox>
+
+				</lightning-layout-item>
+			</template>
+
+		</lightning-layout>
+
+
+		<lightning-layout multiple-rows>
+			<lightning-layout-item size="12" padding="horizontal-small">
+				<!-- Filter Fields -->
+				<template if:true={fieldOptions.length}>
+					<template if:true={isRelatedFilter}>
+						<lightning-combobox name="Field" label="Field" value={fieldId} placeholder="Select Field"
+							options={fieldOptions} onchange={handleFieldChanges}>
+						</lightning-combobox>
+					</template>
+
+
+					<template if:true={showFieldContainer}>
+						<template if:false={isRelatedFilter}>
+							<c-aqb_multi-level-picklist name="Field" label="Field" onselected={handleSelectedField}
+								all-options={allObjectFieldArr} primary-object-selected={objectname}>
+							</c-aqb_multi-level-picklist>
+						</template>
+					</template>
+				</template>
+
+			</lightning-layout-item>
+			<lightning-layout-item size="12" padding="around-small">
+				<!-- Operator List -->
+
+				<lightning-combobox name="Operator" label="Operator" value={operator} placeholder="Select Operator"
+					options={operatorOptions} onchange={handleChange}>
+				</lightning-combobox>
+
+
+			</lightning-layout-item>
+			<lightning-layout-item size="12" padding="around-small">
+				<!-- Value -->
+				<!--Can have multiple Type of input here based on the field  selected above-->
+
+				<template if:true={showValueContainer}>
+					<label lightning-combobox_combobox="" class="slds-form-element__label" >Value</label>
+					<template if:true={showMultiSelectCombobox}>
+						<c-aqb_combobox-multi-select onvaluechanged={handleMultiSelectValueChange}
+							option-data={multiselectoptions} show-dropdown=true></c-aqb_combobox-multi-select>
+					</template>
+					<template if:true={showDateInput}>
+						<lightning-input variant="label-hidden" type="date" name="dateValue" label="Value"
+							onchange={handleDateChange}></lightning-input>
+					</template>
+					<template if:true={showTextInput}>
+						<lightning-input variant="label-hidden" type="text" label="Value" placeholder="Put Value Here"
+							onchange={handleTextChange}>
+							></lightning-input>
+					</template>
+				</template>
+
+			</lightning-layout-item>
+		</lightning-layout>
+		<div class="slds-border_top">
+			<lightning-layout multiple-rows>
+				<lightning-layout-item size="5" padding="around-small">
+
+
+				</lightning-layout-item>
+
+				<lightning-layout-item size="4" padding="around-small">
+					<lightning-button variant="brand" label="Add Filter" title="Add filter to View"
+						onclick={handleAddFilter} class="slds-m-left_x-small"></lightning-button>
+				</lightning-layout-item>
+				<lightning-layout-item size="3" padding="around-small">
+					<lightning-button variant="destructive-text" label="Reset" title="Reset Filter"
+						onclick={handleResetFilter} class="slds-m-left_x-small"></lightning-button>
+				</lightning-layout-item>
+			</lightning-layout>
+		</div>
+	</div>
+
+</template>

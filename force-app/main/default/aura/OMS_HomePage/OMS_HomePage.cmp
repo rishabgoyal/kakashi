@@ -1,0 +1,15 @@
+<aura:component controller="OMS_HomePageController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+         <aura:attribute name="accList" type="List" />
+       <aura:attribute name="UserId" type="Id" />
+   
+    Hello We Are in Communities.
+    <br/>
+    {!v.UserId} user
+    <!--aura:iteration items="{!v.accList}" var="item">
+            {!item.Name}<br/>
+    </aura:iteration-->
+   <ui:button label="Logout" press="{!c.logout}"/>
+    
+</aura:component>

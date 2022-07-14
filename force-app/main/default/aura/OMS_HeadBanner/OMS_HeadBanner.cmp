@@ -1,0 +1,31 @@
+<aura:component controller="OMS_HomePageController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+   <aura:attribute name="showUserPopover" type="boolean" default="false" />
+    <lightning:overlayLibrary aura:id="overlayLib"/> 
+    
+    <div style="background:#F3F2F2"><br/>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-p-left_large  cOMS_HeadBanner">
+                        <lightning:icon iconName="utility:shopping_bag"  />
+                    </div>
+                    <div class="slds-p-left_small slds-text-heading_medium  cOMS_HeadBanner">
+                      	Order Management System
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col">
+                <div align="right" class="slds-p-right_large  cOMS_HeadBanner">
+                    <lightning:avatar variant="circle"  onclick="{!c.showDetails}" initials="" fallbackIconName="standard:avatar" class="slds-m-right_small">
+                    </lightning:avatar>
+                    <aura:if isTrue="{!v.showUserPopover}">
+                        <c:Popover aura:id="UserProfilePopover"  nubbinposition="TopRight" compName="c:PopoverInner"/>
+                    </aura:if>     
+                </div>
+            </div>
+        </div>
+        
+        <br/>
+    </div>    
+</aura:component>

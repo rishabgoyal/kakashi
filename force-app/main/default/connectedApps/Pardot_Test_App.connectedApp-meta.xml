@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>rishabg72@gmail.com</contactEmail>
+    <label>Pardot Test App</label>
+    <oauthConfig>
+        <callbackUrl>https://localhost
+https://opportunity-sales-42610.my.salesforce.com/services/authcallback/inventorymgmt
+https://productivity-innovation-99327.my.salesforce.com/services/authcallback/inventorycontrolauth
+https://shubhamvlocity.my.salesforce.com/services/authcallback/productquantity
+https://shubhamvlocity.lightning.force.com/services/authcallback/productquantity
+https://web-marketing-29674.my.salesforce.com/services/authcallback/productquantity
+https://cloud-client-03971.my.salesforce.com/services/authcallback/inventorycontrolauth</callbackUrl>
+        <consumerKey>3MVG9YDQS5WtC11qaYDrn2jm7r9M693Y_aM.aZgx3vB001VhXM8.eS7KiILfEJggZ06Lklnctp1ajwUwm3I3A</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>false</isSecretRequiredForRefreshToken>
+        <scopes>Basic</scopes>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>Full</scopes>
+        <scopes>Chatter</scopes>
+        <scopes>CustomApplications</scopes>
+        <scopes>RefreshToken</scopes>
+        <scopes>OpenID</scopes>
+        <scopes>CustomPermissions</scopes>
+        <scopes>Wave</scopes>
+        <scopes>Eclair</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

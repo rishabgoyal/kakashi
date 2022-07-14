@@ -1,0 +1,71 @@
+.imageStyle {
+   border-radius: 0.4rem 0 0 0;
+    height: auto;
+    width: 60%;
+
+}
+.detailStyle
+{
+    background: white;
+}
+.card-details {
+    background: #fff;
+    padding: 10px 5px;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+.slds-rich-text-editor__output span p img{
+
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+.card-right {
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+    margin-left: 5%;
+}
+.card-left {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    margin-left: 3%;
+}
+.card-tag {
+    margin-top: 4px;
+    width: 100%;
+    line-height: 14px;
+}
+h4 {
+    font-size: 14px;
+    color: #333;
+    line-height: normal;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+.card-tag span {
+    font-size: 12px;
+    color: #999;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.__likes {
+    text-align: center;
+}
+.__votes .__count {
+    font-size: 12px;
+    color: #999;
+    line-height: 14px;
+    text-align: center;
+}
+.__likes .__percentage {
+        padding-left: 7px;
+    font-size: 14px;
+    color: #333;
+    line-height: 21px;
+    vertical-align: top;
+    display: inline-block;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>rishabg72@gmail.com</contactEmail>
+    <label>For Integration</label>
+    <oauthConfig>
+        <callbackUrl>https://www.google.com</callbackUrl>
+        <consumerKey>3MVG9YDQS5WtC11qaYDrn2jm7rybJE6XDDJp3nX.InRHaoyEQPwMpuh_9JOuy.XQKyNS7ZCMThbOqfnHp_4_O</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <isConsumerSecretOptional>false</isConsumerSecretOptional>
+        <isIntrospectAllTokens>false</isIntrospectAllTokens>
+        <isSecretRequiredForRefreshToken>true</isSecretRequiredForRefreshToken>
+        <scopes>Full</scopes>
+    </oauthConfig>
+    <oauthPolicy>
+        <ipRelaxation>ENFORCE</ipRelaxation>
+        <refreshTokenPolicy>infinite</refreshTokenPolicy>
+    </oauthPolicy>
+</ConnectedApp>

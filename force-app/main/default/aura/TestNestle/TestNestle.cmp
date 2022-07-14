@@ -1,0 +1,10 @@
+<aura:component controller="TestNestleController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+   
+    <aura:attribute name="ScreenMessage" type="String" default="HEllo" />
+    
+    {!v.ScreenMessage}
+
+    <lightning:button variant="brand" label="Helllo click here" title="Hello Click Here" onclick="{! c.myAction }" />
+	       
+</aura:component>

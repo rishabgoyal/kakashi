@@ -1,0 +1,29 @@
+<aura:component implements="lightning:actionOverride,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="confirmationQuery" type="String" default="Are you sure you want to proceed?"></aura:attribute>
+    <aura:attribute name="response" type="boolean" default="false"></aura:attribute>
+    <aura:attribute name="title" type="String" default="Confirmation" />
+    <aura:attribute name="identifierId" type="String" default="" />
+    
+    <aura:registerEvent name="ModalResponse" type="c:ModalResponse"/>
+    
+    <aura:method name="openModal" action="{!c.openmodal}" />
+    
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" aura:id="Modalbox" class="slds-modal slds-modal_large">
+        <div class="slds-modal__container" style="width: 65%; ">
+            <div class="slds-modal__header" style="background: #06639E;">
+                <div style="color:white;">{!v.title}</div>
+            </div>
+            <div class="slds-modal__content slds-p-around--xx-large">
+                <!--Confirmation Query-->
+                <p><lightning:formattedText value="{!v.confirmationQuery}" /></p>
+            </div>
+            
+            <div class="slds-modal__footer" style="background: #F3F1F2 ">
+                <lightning:button class="" variant="neutral" aura:id="No" name="No" label="No" onclick="{!c.closeModal}"/>
+                <lightning:button class="yesButton cModalBoxConfirmation" variant="brand" aura:id="Yes" name="Yes" label="Yes" onclick="{!c.closeModal}"/>
+                
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop " aura:id="Modalbackdrop"></div>   
+</aura:component>

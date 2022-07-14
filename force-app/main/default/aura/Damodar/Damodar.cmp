@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="ButtonLabel" type="String" default="Click Me" />
+    <lightning:input aura:id="highs" type="text" label="{!v.ButtonLabel}" value="To be highlighted" />
+    <lightning:button variant="brand" label="{!v.ButtonLabel}" title="Brand action" onclick="{! c.handleClick }" />
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="text-input-id-1">Input Label</label>
+        <div class="slds-form-element__control">
+            <lightning:icon class="pr-error-icon cDamodar IconColor" title="There are errors that need attention." iconName="action:info" size="small" />
+                                      
+            <input style='background-color: rgb(181, 144, 144) !important;' id="text-input-id-1" value="asdas" placeholder="Placeholder Text" class="slds-input" type="text"  />
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,11 @@
+<template>
+	<template if:true={listOptions.length}>
+                <lightning-combobox name={name} label={label} value={value}
+					placeholder={placeholder} options={listOptions} onchange={handleValueChanges}>
+				</lightning-combobox>
+	</template>
+
+	{selectedValuelabel}
+	<br/>
+	{selectedValueName}
+</template>

@@ -1,0 +1,44 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name = "IconSize" type="String" default="small">
+    </aura:attribute>
+    
+    {!v.IconSize}
+    
+    <aura:if isTrue="{!v.IconSize=='small'}">
+        
+        <div style="border-radius: 5%;
+                    background: #73AD21;
+                    padding: 10%;
+                    width: 40px;
+                    height: 30px;">
+            Hello I am good1
+        </div>
+        
+    </aura:if>
+    <aura:if isTrue="{!v.IconSize=='medium'}">
+        
+        <div style="border-radius: 5%;
+                    background: #73AD21;
+                    padding: 10%;
+                    width: 100px;
+                    height: 75px;">
+            Hello I am good2
+        </div>
+        
+    </aura:if>
+    <aura:if isTrue="{!v.IconSize=='large'}">
+        
+        <div style="border-radius: 5%;
+                    background: #73AD21;
+                    padding: 10%;
+                    width: 200px;
+                    height: 150px;">
+            Hello I am good4
+      </div>
+        
+    </aura:if>
+    
+    
+    
+</aura:component>

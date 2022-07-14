@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:attribute name="hideText" type="String" default="Hi"/>
+    <aura:if isTrue="{!v.hideText}">
+        Hi, This is Diksha
+        <aura:set attribute="else">
+            It's LNU
+        </aura:set>
+    </aura:if> 
+    
+    <lightning:button variant="brand" label="{!v.hideText}" title="Brand action" onclick="{! c.handleClick}" />
+</aura:component>

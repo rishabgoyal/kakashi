@@ -1,0 +1,182 @@
+<template>
+
+
+	<lightning-card title="Query Result"  >
+
+		<div class="slds-m-around_medium">
+
+			<div class="backgroundInverse" if:true={showSpinner}>
+				<lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+			</div>
+
+
+
+			<template if:true={datatodisplay}>
+				<template if:true={datatodisplay.length}>
+					<div class="slds-grid slds-gutters">
+						<div class="slds-col slds-p-left_medium">
+							<span ><lightning-combobox style="width:200px" name="pagesize" placeholder="Set Page Size" label=""
+									value={pagesize} options={pageSizeOptions} onchange={handlePageSizeChange}>
+								</lightning-combobox>
+								Total : {totalRecords}
+								</span>
+						</div>
+						<div class="slds-grid slds-p-top_medium">
+							<div class="slds-col">
+								<span>
+							<lightning-button  label="Previous" disabled={showPrevButton} icon-name="utility:chevronleft"
+								onclick={previousHandler} >
+							</lightning-button> 
+						</span>
+							</div>
+							<div class="slds-col slds-p-top_x-small ">
+								Page {page} of {totalPage}
+							</div>
+							<div class="slds-col">
+								<lightning-button label="Next" icon-name="utility:chevronright"
+									disabled={showNextButton} icon-position="right" onclick={nextHandler}>
+								</lightning-button>
+							</div>
+
+
+
+						</div>
+						<div class="slds-col slds-p-top_large slds-p-bottom_x-small slds-p-right_medium">
+							<span>
+							<lightning-button variant="brand" label="Any Action" title="Any Action"
+								 class="slds-float_right slds-m-left_x-small"></lightning-button>
+
+						</span>
+						</div>
+					</div>
+
+
+
+					<template if:true={columns.length}>
+						<lightning-datatable key-field="Id" data={datatodisplay} columns={columns} sorted-by={sortedBy}
+							sorted-direction={sortedDirection} onsort={updateColumnSorting}>
+						</lightning-datatable>
+					</template>
+					</br>
+
+
+					<div class="slds-grid slds-gutters">
+						<div class="slds-col slds-p-left_medium">
+						</div>
+						<div class="slds-grid slds-p-top_medium">
+							<div class="slds-col slds-p-left_medium">
+								<span>
+							<lightning-button  label="Previous" disabled={showPrevButton} icon-name="utility:chevronleft"
+								onclick={previousHandler} >
+							</lightning-button> 
+						</span>
+							</div>
+							<div class="slds-col slds-p-top_x-small ">
+								Page {page} of {totalPage}
+							</div>
+							<div class="slds-col">
+								<lightning-button label="Next" icon-name="utility:chevronright"
+									disabled={showNextButton} icon-position="right" onclick={nextHandler}>
+								</lightning-button>
+							</div>
+
+						</div>
+						<div class="slds-col slds-p-left_medium">
+						</div>
+					</div>
+				</template>
+			</template>
+			<template if:false={datatodisplay.length}>
+				<div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-m-top_xx-small"
+					role="alert">
+					<span class="slds-assistive-text">warning</span>
+					<span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
+                          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+                          </svg> 
+                          </span>
+					<h2>No Data Found !!
+					</h2>
+					<!-- <div class="slds-notify__close">
+						<button class="slds-button slds-button_icon slds-button_icon-small" title="Close">
+                             <svg class="slds-button__icon" aria-hidden="true">
+                              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Close</span> 
+                           </button>
+					</div> -->
+				</div>
+			</template>
+		</div>
+	</lightning-card>
+
+
+
+	<template if:true={isModalOpen}>
+		<!-- Modal/Popup Box LWC starts here -->
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- Modal/Popup Box LWC header here -->
+				<header class="slds-modal__header">
+					<button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title="Close"
+            onclick={closeModal}
+          >
+            <lightning-icon
+              icon-name="utility:close"
+              alternative-text="close"
+              variant="inverse"
+              size="small"
+            ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+					<h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">
+						Update Record
+					</h2>
+				</header>
+				<!-- Modal/Popup Box LWC body starts here -->
+
+				<div if:true={isModalOpen} class="slds-modal__content slds-p-around_large">
+					<p>&nbsp;</p>
+
+
+					<div class="slds-grid slds-gutters">
+						<div class="slds-col slds-size_2-of-3">
+							<label>Select Stage</label>
+							<c-aqb_multi-select-combobox onvaluechanged={handleLeadSourceChange}
+								selected-object-name="Opportunity" selected-field-name="StageName">
+							</c-aqb_multi-select-combobox>
+						</div>
+					</div>
+
+					<br /><br /><br/>
+					<br /><br /><br/>
+        </div>
+
+					<!-- Modal/Popup Box LWC footer starts here -->
+					<footer class="slds-modal__footer">
+						<button
+            class="slds-button slds-button_brand"
+            if:false={showSpinner}
+            onclick={handleUpdate}
+            title="Apply"
+          >
+          Apply
+          </button>
+
+						<button
+            class="slds-button slds-button_brand"
+            onclick={closeModal}
+            title="Cancel"
+          >
+            Cancel
+          </button>
+					</footer>
+				</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+</template>

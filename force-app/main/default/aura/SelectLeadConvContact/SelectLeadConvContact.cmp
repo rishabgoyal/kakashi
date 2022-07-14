@@ -1,0 +1,30 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <lightning:card>
+        <aura:set attribute="title">
+            <lightning:icon iconName="standard:contact" size="small"/>
+                Name
+        </aura:set>
+        <aura:set attribute="footer">
+              <lightning:button variant="neutral" label="Select Contact" title="Select Contact" onclick="{! c.contactSelected }" />
+        </aura:set>
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="6" padding="around-small">
+                <p> Birthdate   
+                    <lightning:formattedDateTime value="" year="numeric" month="numeric" day="numeric"  />
+				</p>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <p> Email <lightning:formattedEmail value="email@example.com" /></p>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" padding="around-small">
+                <p> Address <lightning:formattedAddress
+                                                        street="121 Spear St."
+                                                        city="San Francisco"
+                                                        country="US"
+                                                        province="CA"
+                                                        postalCode="94105"
+                                                        /></p>
+            </lightning:layoutItem>
+        </lightning:layout>   
+    </lightning:card>
+</aura:component>

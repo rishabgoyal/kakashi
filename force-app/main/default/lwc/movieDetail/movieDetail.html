@@ -1,0 +1,38 @@
+<!--
+  @File Name          : movieDetail.html
+  @Description        : 
+  @Author             : RISHAB GOYAL
+  @Group              : 
+  @Last Modified By   : RISHAB GOYAL
+  @Last Modified On   : 9/28/2019, 4:18:06 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    9/25/2019   RISHAB GOYAL     Initial Version
+-->
+<template>
+  <template if:true={selectedMovie.Id}>
+   <div >
+    <img class="imageStyle" src={selectedMovie.Poster_Source__c}></img>
+    <div class="slds-grid card-details ">
+      <div class="slds-col card-left">
+        <div class="__likes">
+          <lightning-icon icon-name="utility:like" alternative-text="like" size="x-small" variant="error"></lightning-icon>
+          <div class="__percentage">    {selectedMovie.Rating__c}%</div>
+        </div>
+        <div class="__votes">
+          <div class="__count">109,423 votes</div>
+        </div>
+      </div>
+      <div class="slds-col card-right">
+        <div class="card-title">
+          <h4>{selectedMovie.Name}</h4>
+        </div>
+        <div class="card-tag">
+          <span><span class="censor">{selectedMovie.Audience__c} |</span> {selectedMovie.Languages__c}</span>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </template>
+</template>

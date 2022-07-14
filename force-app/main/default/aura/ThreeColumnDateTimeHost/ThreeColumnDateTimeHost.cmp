@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	  <c:ThreeColumnDateTime aura:id="mycomp" />
+<lightning:button variant="base" label="Base" title="Base action" onclick="{! c.handleClick }"/>
+</aura:component>

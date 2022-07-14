@@ -1,0 +1,27 @@
+<!--
+  @File Name          : testInp.html
+  @Description        : 
+  @Author             : RISHAB GOYAL
+  @Group              : 
+  @Last Modified By   : RISHAB GOYAL
+  @Last Modified On   : 12/6/2019, 4:07:12 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    12/6/2019   RISHAB GOYAL     Initial Version
+-->
+<template>
+    <lightning-card title="HelloBinding" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <p>Hello, {greeting}!</p>
+            <lightning-input
+                label="Name"
+                value={greeting}
+                onchange={handleChange}
+            ></lightning-input>
+        </div>
+        {Message}
+
+         <lightning-button variant="brand" label="Brand" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+
+    </lightning-card>
+</template>

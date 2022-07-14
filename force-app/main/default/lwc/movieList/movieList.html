@@ -1,0 +1,22 @@
+<!--
+  @File Name          : movieList.html
+  @Description        : 
+  @Author             : RISHAB GOYAL
+  @Group              : 
+  @Last Modified By   : RISHAB GOYAL
+  @Last Modified On   : 9/23/2019, 12:18:36 AM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    9/22/2019   RISHAB GOYAL     Initial Version
+-->
+<template>
+  <template if:true={movieList.data}>
+    <lightning-layout  multiple-rows>
+    <template for:each={movieList.data} for:item=movie>
+      <lightning-layout-item key={movie.Id} size="12" small-device-size="12" medium-device-size="4" large-device-size="4" padding="around-small">
+        <c-movie-tile  movie={movie}></c-movie-tile>
+      </lightning-layout-item>
+    </template>
+  </lightning-layout>
+</template>
+</template>

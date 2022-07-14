@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="TLT" type="Integer" default="1000"/>
+    
+    <aura:attribute name="TLAY1" type="Integer" default="0" />
+    <aura:attribute name="TLAY2" type="Integer" default="0"/>
+    <aura:attribute name="TLAY3" type="Integer" default="0"/>
+    
+    <lightning:input type="number" formatter="currency" aura:id="tlay1" max ="{!v.TLT - v.TLAY2 - v.TLAY3}"  variant="label-hidden" value="{!v.TLAY1}" />
+    <lightning:input type="number" formatter="currency" aura:id="tlay2" max ="{!v.TLT - v.TLAY1 - v.TLAY3}"  variant="label-hidden" value="{!v.TLAY2}" />
+    <lightning:input type="number" formatter="currency" aura:id="tlay3"  max="{!v.TLT - v.TLAY1 - v.TLAY2}" variant="label-hidden" value="{!v.TLAY3}" />
+    
+</aura:component>

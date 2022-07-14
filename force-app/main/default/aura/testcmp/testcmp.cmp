@@ -1,0 +1,36 @@
+<aura:component controller="testController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+                access="global">
+    <aura:attribute name="AccountList" type="List" />
+    <aura:attribute name="selectedrec" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div style="width:50%" >
+        
+        <ul class="slds-has-dividers_bottom-space">
+            
+            <aura:iteration items="{!v.AccountList}" var="item" indexvar="index">
+               
+                <li class="slds-item">
+                    <lightning:tile  label="{!item.Name}" href="/bruce.html">
+                        <aura:set attribute="media">
+                            <lightning:avatar src="/docs/component-library/app/images/examples/avatar1.jpg" fallbackIconName="standard:person_account" alternativeText="Lexee L. Jackson"/>
+                        </aura:set>
+                        <ul class="slds-list_horizontal slds-has-dividers_right">
+                            <li class="slds-item">{!item.Type}</li>
+                            <li class="slds-item">{!item.Phone}</li>
+                            <li class="slds-item">
+                              
+
+                                 <lightning:input aura:id="selectCheckBox" type="checkbox"  value="{!item}" onchange="{!c.getInput}" label="Basic option" name="input1"/>
+                            </li>
+                        </ul>
+                    </lightning:tile>
+                </li>
+                
+            </aura:iteration>
+        </ul>
+           <lightning:input aura:id="" type="checkbox"  onchange="{!c.getInput2}" label="Select all" name="input1"/>
+                       
+        <lightning:button variant="brand" label="Brand action" title="Brand action" onclick="{! c.submitrec }"  />
+    </div>
+</aura:component>

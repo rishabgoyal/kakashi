@@ -1,0 +1,7 @@
+<template>
+    <div style="padding-bottom:5px">
+    <template if:true={displayText.length}>
+            <lightning-pill  label={displayText} onremove={deleteItem}></lightning-pill>
+    </template>
+    </div>
+</template>

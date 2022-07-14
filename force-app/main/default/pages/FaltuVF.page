@@ -1,0 +1,24 @@
+<apex:page showHeader="false" lightningStylesheets="true">
+   
+ 
+    <!--flow:interview name="asd">
+        <apex:param name="Id" value="{!$CurrentPage.parameters.Id}"/>
+    </flow:interview-->
+    
+    
+ <apex:includeLightning />
+    
+    <div style="width:30%;height:100px;" id="FlipcardContainer" />
+    
+    <script>
+    $Lightning.use("c:FaltuApp", function() {
+        $Lightning.createComponent("c:Faltu",
+                                   { 
+                                   },
+                                   "FlipcardContainer",
+                                   function(cmp) {
+                                       console.log('Component created, do something cool here');
+                                   });
+    });
+    </script>
+</apex:page>

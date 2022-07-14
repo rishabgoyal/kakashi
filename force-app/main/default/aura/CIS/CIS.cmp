@@ -1,0 +1,137 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+ <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="CIWList" type="List" />
+
+
+    <aura:attribute name="TMAY1" type="Integer" />
+    <aura:attribute name="TMAY2" type="Integer" />
+    <aura:attribute name="TMAY3" type="Integer" />
+    <aura:attribute name="TMAY4" type="Integer" />
+    <aura:attribute name="TMAY5" type="Integer" />
+    <aura:attribute name="TMT" type="Integer" />
+    <aura:attribute name="tmaDisabled" type="boolean"  default="false"/>
+    
+    
+	
+    <aura:attribute name="TLAY1" type="Integer" />
+    <aura:attribute name="TLAY2" type="Integer" />
+    <aura:attribute name="TLAY3" type="Integer" />
+    <aura:attribute name="TLAY4" type="Integer" />
+    <aura:attribute name="TLAY5" type="Integer" />
+    <aura:attribute name="TLT" type="Integer" />
+    	
+	<aura:attribute name="TGAY1" type="Integer" />
+    <aura:attribute name="TGAY2" type="Integer" />
+    <aura:attribute name="TGAY3" type="Integer" />
+    <aura:attribute name="TGAY4" type="Integer" />
+    <aura:attribute name="TGAY5" type="Integer" />
+    <aura:attribute name="TGT" type="Integer" />
+    
+	<aura:attribute name="OFY1" type="Integer" />
+    <aura:attribute name="OFY2" type="Integer" />
+    <aura:attribute name="OFY3" type="Integer" />
+    <aura:attribute name="OFY4" type="Integer" />
+    <aura:attribute name="OFY5" type="Integer" />
+    <aura:attribute name="OFT" type="Integer" />
+        
+
+    <aura:attribute name="GTotal" type="Integer" />
+    <aura:attribute name="Y1T" type="Integer" />
+    <aura:attribute name="Y2T" type="Integer" />
+    <aura:attribute name="Y3T" type="Integer" />
+    <aura:attribute name="Y4T" type="Integer" />
+    <aura:attribute name="Y5T" type="Integer" />
+      <aura:attribute name="loaded" type="Boolean" default="true" />
+    <div class="exampleHolder">
+        <aura:if isTrue="{! v.loaded }">
+          <table  class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th scope="col" class="slds-cell-wrap"  style="font-weight: bold;">Total Proposed Fund Services Area Costs</th>
+                <th scope="col" class="slds-cell-wrap"  style="font-weight: bold;"></th>
+                <th scope="col" class="slds-cell-wrap"  style="font-weight: bold;">{!v.fstatement.RD_RDAE_2019__c }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.fstatement.RD_RDAE_2020__c }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.fstatement.RD_RDAE_2021__c }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.fstatement.RD_RDAE_2022__c }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.fstatement.RD_RDAE_2023__c }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.fstatement.RD_RDAE_Total__c}</th>
+            </tr>
+            <tr class="slds-line-height_reset">
+                <th scope="col" class="slds-cell-wrap"></th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Total Project Cost</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Year 1 - 2019</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Year 2 - 2020</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Year 3 - 2021</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Year 4 - 2022</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Year 5 - 2023</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="col" class="slds-cell-wrap" >Total Match Amount' (for 100% Grants) 'Cash Substituation Amount for Loan Portion' (for 50/50 Loan &amp; Grant combo request)		</td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.CIWList[1].RD_RDAE_Application__r.RD_RDAE_Matching_Funds__c }</td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input disabled="{!v.tmaDisabled}" type="number" formatter="currency" aura:id="tmay1"  onchange="{! c.showupdated }"  variant="label-hidden" value="{!v.TMAY1}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input disabled="{!v.tmaDisabled}" type="number" formatter="currency" aura:id="tmay2"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TMAY2}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input disabled="{!v.tmaDisabled}" type="number" formatter="currency" aura:id="tmay3"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TMAY3}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input disabled="{!v.tmaDisabled}" type="number" formatter="currency" aura:id="tmay4"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TMAY4}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input disabled="{!v.tmaDisabled}" type="number" formatter="currency" aura:id="tmay5"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TMAY5}" /></td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.TMT}</td>
+
+            </tr>
+            
+            <tr>
+                <td scope="col" class="slds-cell-wrap" >Total Loan Amount</td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.CIWList[1].RD_RDAE_Application__r.RD_RDAE_Loan_Amount_Requested__c  }</td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tlay1"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TLAY1}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tlay2"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TLAY2}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tlay3"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TLAY3}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tlay4"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TLAY4}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tlay5"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TLAY5}" /></td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.TLT}</td>
+
+            </tr>
+            
+            <tr>
+                <td scope="col" class="slds-cell-wrap">Total Grant Amount</td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.CIWList[1].RD_RDAE_Application__r.RD_RDAE_Grant_Amount_Requested__c  }</td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tgay1"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TGAY1}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tgay2"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TGAY2}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tgay3"  onchange="{! c.showupdated }"  variant="label-hidden" value="{!v.TGAY3}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tgay4"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TGAY4}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="tgay5"  onchange="{! c.showupdated }"   variant="label-hidden" value="{!v.TGAY5}" /></td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.TGT}</td>
+
+            </tr>
+            <tr>
+                <td scope="col" class="slds-cell-wrap">Other Funds</td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.CIWList[1].RD_RDAE_Application__r.RD_RDAE_Other_Funds__c  }</td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="ofy1" onchange="{! c.showupdated }"    variant="label-hidden" value="{!v.OFY1}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="ofy2" onchange="{! c.showupdated }"    variant="label-hidden" value="{!v.OFY2}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="ofy3" onchange="{! c.showupdated }"    variant="label-hidden" value="{!v.OFY3}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="ofy4" onchange="{! c.showupdated }"     variant="label-hidden" value="{!v.OFY4}" /></td>
+                <td scope="col" class="slds-cell-wrap">  <lightning:input type="number" formatter="currency" aura:id="ofy5" onchange="{! c.showupdated }"     variant="label-hidden" value="{!v.OFY5}" /></td>
+                <td scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.OFT}</td>
+
+            </tr>
+               <tr class="slds-line-height_reset">
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">Total</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;"></th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.Y1T }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.Y2T }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.Y3T }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.Y4T }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.Y5T }</th>
+                <th scope="col" class="slds-cell-wrap" style="font-weight: bold;">{!v.GTotal}</th>
+            </tr>
+        </tbody>
+    </table>
+     <lightning:button class="slds-align_absolute-center" variant="brand" label="Save" title="Save" onclick="{! c.update }" />
+            <aura:set attribute="else">
+                <lightning:spinner alternativeText="Loading" />
+            </aura:set>
+        </aura:if>
+    </div>
+    
+    
+</aura:component>

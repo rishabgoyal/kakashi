@@ -1,0 +1,9 @@
+.THIS div:focus {
+    outline: none;
+} 
+.THIS li:focus {
+    outline: none;
+}
+.THIS .slds-dueling-list__options{
+   height: 400px;
+}
